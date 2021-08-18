@@ -158,5 +158,45 @@ GROUP BY c.CustomerID
 having COUNT(o.OrderID)>100
 
 --23
-select 
-from Suppliers s join
+select s.CompanyName as [Supplier Company Name], c.CompanyName as [Shipping Company Name]
+from Suppliers s cross join Shippers c
+
+--24
+select o.OrderDate, p.ProductName
+from Orders o cross join Products p
+
+--25
+select a.FirstName + '  '+ a.LastName, b.FirstName+'  '+b.LastName
+from Employees a, Employees b
+where a.Title = b.Title and a.EmployeeID != b.EmployeeID
+
+--26
+select *
+from Employees c
+where ReportsTo >=2
+
+--27
+select c.City,c.CompanyName,c.ContactName as [Contact Name]
+from Customers c 
+union
+select s.City,s.CompanyName,s.ContactName as [Contact Name]
+from Suppliers s
+
+
+--28
+
+-- select *
+-- from t1  inner join t2  on t1.f1 = t2.f2
+--F3.T3
+-- 2
+-- 3
+
+
+--29
+
+-- select *
+-- from t1  left join t2  on t1.f1 = t2.f2
+--F3.T3
+-- 1
+-- 2
+-- 3
